@@ -4,7 +4,7 @@ for i in `cat /var/log/squid/access.log | grep fbcdn | cut -d '/' -f 3 | cut -d 
         INETNUM=$(whois $i | grep -m 1 'inetnum\|NetRange' | cut -d ':' -f 2)
         CIDR=$(ipcalc $INETNUM | grep /)
         #echo IP: $i INETNUM: $INETNUM CIDR: $CIDR
-        echo $i\;$INETNUM\;$CIDR >> /home/proxyadmin/qos_content/$(date +%Y%m%d)fbcdnip_full
+        echo $i\;$INETNUM\;$CIDR >> ~/qos_content/$(date +%Y%m%d)fbcdnip_full
 done
 
 
